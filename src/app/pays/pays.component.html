@@ -1,1 +1,15 @@
-<p>pays works!</p>
+<input type="text" (input)="filtrerPays($event.target.value)" 
+    (focus)="filtrerPays(valeurChamp)" 
+    (blur)="cacherResultats()" 
+    [(ngModel)]="valeurChamp"
+>
+<ul *ngIf="afficherResultats">
+  <li *ngFor="let pays of paysFiltres" (click)="selectionnerPays(pays)">{{ pays }}</li>
+</ul>
+
+
+<form>
+    <app-pays></app-pays>
+    <button type="submit">Envoyer</button>
+</form>
+  
